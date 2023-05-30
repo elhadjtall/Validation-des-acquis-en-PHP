@@ -16,5 +16,22 @@ form input {
     margin: 10px;
     /* Agrandir les input */
     padding: 8px;
-    
+    /* enrondi les bordures */
+    border-radius: 7px;
+    /* les bordures et couleurs */
+    border: 1px solid #ccc;
+    /* ligne bordure */
+    outline: none;
+}
+/* Manipulation du button */
+form input[type="submit"]{
+    /* pointage */
+    cursor: pointer;
+    /* transition */
+    transition: 1s;
+}
+/* manuipulation du button en fonction du pointage */
+form input[type="submit"]:hover {
+    background-color: rgb(234, 167, 10);
+    border: 1px solid rgb(234, 167, 10);
 }
