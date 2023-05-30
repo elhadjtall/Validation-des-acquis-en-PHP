@@ -17,7 +17,7 @@ class Compte {
     //Methode toString
     public function __toString() {
         //Creer une condition 
-        if(empty($this->solde)) {
+        if(empty($this->solde)) { //SI la variable solde est vide d'envoyer incorrect
             $msg = 'Le solde de Monsieur ' .$this->nom. 'n\'est pas correct.';
         } else{
             $msg = 'Le solde de Monsieur ' .$this->nom. ' est de ' .$this->solde. ' '.self::DEVISE;
