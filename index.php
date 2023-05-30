@@ -16,6 +16,7 @@ spl_autoload_register(function($class) {
 </head>
 <body>
     <form action="" method="POST">
+        <input type="text" name="nom" id="nom" placeholder="@votre nom" >
         <input type="text" name="solde" id="solde" placeholder="@volde solde">
         <input type="submit" name="valider" value="Enregistrer">
     </form>
@@ -23,11 +24,13 @@ spl_autoload_register(function($class) {
     <section>
         <?php
         //on verifie les champs du formulaire 
-        if(isset($_POST['valider'])){
+        if(isset($_POST['valider']) || isset($_POST['nom'])){ // Verifier le super globale ondoscort nom
+            //Variable nom
+            $nom = $_POST['nom'];
             //On creer des variables
             $solde = $_POST['solde'];
             //On creer une nouvelle instance de compte
-            $compte = new Compte('Oumar',  $solde); 
+            $compte = new Compte($nom,  $solde); 
             echo $compte;
         }
     
