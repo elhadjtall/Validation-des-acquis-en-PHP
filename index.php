@@ -19,16 +19,19 @@ spl_autoload_register(function($class) {
         <input type="text" name="solde" id="solde" placeholder="@volde solde">
         <input type="submit" name="valider" value="Enregistrer">
     </form>
-    <?php
-    //on verifie les champs du formulaire 
-    if(isset($_POST['valider'])){
-        //On creer des variables
-        $solde = $_POST['solde'];
-        //On creer une nouvelle instance de compte
-        $compte = new Compte('Oumar',  $solde); 
-        echo $compte;
-    }
-   
-    ?>
+
+    <section>
+        <?php
+        //on verifie les champs du formulaire 
+        if(isset($_POST['valider'])){
+            //On creer des variables
+            $solde = $_POST['solde'];
+            //On creer une nouvelle instance de compte
+            $compte = new Compte('Oumar',  $solde); 
+            echo $compte;
+        }
+    
+        ?>
+    </section>
 </body>
 </html>
