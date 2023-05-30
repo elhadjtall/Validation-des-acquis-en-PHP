@@ -17,6 +17,11 @@ class Compte {
         }
         
     }
+    // methode de credité le compte
+    public function crediter($ajout) {
+        // $this->solde = $this->solde + $ajout;
+        $this->solde += $ajout;
+    }
 
     //Methode toString
     public function __toString() {

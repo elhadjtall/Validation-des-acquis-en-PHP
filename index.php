@@ -18,6 +18,7 @@ spl_autoload_register(function($class) {
     <form action="" method="POST">
         <input type="text" name="nom" id="nom" placeholder="@votre nom" >
         <input type="text" name="solde" id="solde" placeholder="@volde solde">
+        <input type="text" name="credit" id="credit" placeholder="@crediter votre compte">
         <input type="submit" name="valider" value="Enregistrer">
     </form>
 
@@ -32,6 +33,14 @@ spl_autoload_register(function($class) {
             //On creer une nouvelle instance de compte
             $compte = new Compte($nom,  $solde); 
             echo $compte;
+
+        //On verifie si le champs du credit est rempli
+        $credit = $_POST['credit'];
+        if($credit) {
+            $compte ->crediter($credit);
+            echo '<br>';
+            echo $compte;
+        }
         }
     
         ?>
