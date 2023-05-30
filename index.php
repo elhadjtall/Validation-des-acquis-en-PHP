@@ -11,13 +11,23 @@ spl_autoload_register(function($class) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COmpte Bancaire</title>
+    <title>Compte Bancaire</title>
 </head>
 <body>
+    <form action="" method="POST">
+        <input type="text" name="solde" id="solde" placeholder="@volde solde">
+        <input type="submit" name="valider" value="Enregistrer">
+    </form>
     <?php
-    //On creer une nouvelle instance de compte
-    $compte = new Compte(12345678,  'Toto'); 
-    echo $compte;
+    //on verifie les champs du formulaire 
+    if(isset($_POST['valider'])){
+        //On creer des variables
+        $solde = $_POST['solde'];
+        //On creer une nouvelle instance de compte
+        $compte = new Compte('Oumar',  $solde); 
+        echo $compte;
+    }
+   
     ?>
 </body>
 </html>

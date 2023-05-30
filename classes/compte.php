@@ -6,7 +6,7 @@ class Compte {
 
     public function __construct($nom, $solde){
         $this->nom = $nom;
-        $this->solode = $solde;
+        $this->solde = $solde;
     }
 
     public function __toString() {
