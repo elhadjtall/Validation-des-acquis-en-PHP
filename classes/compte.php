@@ -19,16 +19,23 @@ class Compte {
     }
     // methode de credité le compte
     public function crediter($ajout) {
-        // $this->solde = $this->solde + $ajout;
-        $this->solde += $ajout;
+        if ($ajout <= 0) {
+            echo '<br> Impossible de recharger ! <br>';
+        }elseif(is_numeric($ajout)){
+             // $this->solde = $this->solde + $ajout;
+            $this->solde += $ajout;
+            echo '<br>Le compte à été crediter de' .$ajout. ' ' .self::DEVISE.'<br>Nouveau solde: <br>';
+    }else{
+        echo '<br>';
     }
+}
     //methode retirer dans votre compte
     public function retirer ($retrait) {
         if($retrait <= 0) { // SI le montant retirer est inférieur ou égal à zero retrait impossible
             echo '<br>Retrait impossible !<br>';
         }elseif(is_numeric($retrait)){ // Verification numérique du montant rétirer 
             $this->solde -= $retrait; // Souscription du montant par rapport au solde du compte
-            echo '<br>Le compte à été soustrait de '.$retrait. ' '.sefl::DEVISE.'<br>Nouveau solde:<br>';
+            echo '<br>Le compte à été soustrait de '.$retrait. ' '.self::DEVISE.'<br>Nouveau solde: <br>';
         }else {
             echo '<br>';
         }
