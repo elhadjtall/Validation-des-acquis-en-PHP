@@ -22,11 +22,10 @@ spl_autoload_register(function($class) {
         <input type="text" name="retirer" id="retirer" placeholder="@Retirer">
         <input type="submit" name="valider" value="Enregistrer">
     </form>
-
-    <section>
         <?php
         //on verifie les champs du formulaire 
         if(isset($_POST['valider']) || isset($_POST['nom'])){ // Verifier le super globale ondoscort nom
+            echo '<section>';
             //Variable nom
             $nom = $_POST['nom'];
             //On creer des variables
@@ -48,9 +47,9 @@ spl_autoload_register(function($class) {
             $compte->retirer($retrait);
             echo $compte;
         }
-        }
-    
-        ?>
-    </section>
+        echo '</section>';
+        
+    }
+    ?>
 </body>
 </html>

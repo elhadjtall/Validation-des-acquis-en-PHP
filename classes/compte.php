@@ -12,23 +12,40 @@ class Compte {
         $this->nom = $nom;
         // On va controler l'affection à la propriété du solde
         if(is_numeric($solde)) { // Controler si la valeur numérique on affecte si non 
-
             $this->solde = $solde;
         }
-        
+    }
+    // Donnner de la visibilité du secteur private pour qu'il ne soit pas manipuler à l'extérieur
+    private function setNom($nom){
+        if(is_string($nom)){
+            $this->nom = $nom;
+        }
+    }
+    //Secteur de visibilité de solde
+    private function setSolde($solde){
+        if(is_numeric($solde)){
+            $this->solde = $solde;
+        }
+    }
+    // Fonction get (un guetteur)
+    public function getNom($nom){
+        return $this->nom;
+    }
+    public function getSolde($solde) {
+        return $this->solde;
     }
     // methode de credité le compte
     public function crediter($ajout) {
         if ($ajout <= 0) {
-            echo '<br> Impossible de recharger ! <br>';
+            echo '<br>Impossible de recharger !<br>';
         }elseif(is_numeric($ajout)){
              // $this->solde = $this->solde + $ajout;
             $this->solde += $ajout;
-            echo '<br>Le compte à été crediter de' .$ajout. ' ' .self::DEVISE.'<br>Nouveau solde: <br>';
-    }else{
-        echo '<br>';
+            echo '<br>Le compte à été crediter de '.$ajout. ' '.self::DEVISE.'<br>Nouveau solde: <br>';
+        }else{
+            echo '<br>';
+        }
     }
-}
     //methode retirer dans votre compte
     public function retirer ($retrait) {
         if($retrait <= 0) { // SI le montant retirer est inférieur ou égal à zero retrait impossible
@@ -40,7 +57,6 @@ class Compte {
             echo '<br>';
         }
     }
-
     //Methode toString
     public function __toString() {
         //Creer une condition 
