@@ -18,7 +18,8 @@ spl_autoload_register(function($class) {
     <form action="" method="POST">
         <input type="text" name="nom" id="nom" placeholder="@votre nom" >
         <input type="text" name="solde" id="solde" placeholder="@volde solde">
-        <input type="text" name="credit" id="credit" placeholder="@crediter votre compte">
+        <input type="text" name="credit" id="credit" placeholder="@crediter">
+        <input type="text" name="retirer" id="retirer" placeholder="@Retirer">
         <input type="submit" name="valider" value="Enregistrer">
     </form>
 
@@ -39,6 +40,12 @@ spl_autoload_register(function($class) {
         if($credit) {
             $compte ->crediter($credit);
             echo '<br>';
+            echo $compte;
+        }
+        // On verifie si le champs retrait est rempli
+        $retrait = $_POST['retirer'];
+        if($retrait) {
+            $compte->retirer($retrait);
             echo $compte;
         }
         }

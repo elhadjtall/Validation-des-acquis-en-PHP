@@ -22,6 +22,17 @@ class Compte {
         // $this->solde = $this->solde + $ajout;
         $this->solde += $ajout;
     }
+    //methode retirer dans votre compte
+    public function retirer ($retrait) {
+        if($retrait <= 0) { // SI le montant retirer est inférieur ou égal à zero retrait impossible
+            echo '<br>Retrait impossible !<br>';
+        }elseif(is_numeric($retrait)){ // Verification numérique du montant rétirer 
+            $this->solde -= $retrait; // Souscription du montant par rapport au solde du compte
+            echo '<br>Le compte à été soustrait de '.$retrait. ' '.sefl::DEVISE.'<br>Nouveau solde:<br>';
+        }else {
+            echo '<br>';
+        }
+    }
 
     //Methode toString
     public function __toString() {
