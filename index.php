@@ -32,6 +32,7 @@ spl_autoload_register(function($class) {
             $solde = $_POST['solde'];
             //On creer une nouvelle instance de compte
             $compte = new Compte($nom,  $solde); 
+            echo '<h2>Détail du compte de M. '.$compte->getNom($nom). '<h2>'; //Détail du compte
             echo $compte;
 
         //On verifie si le champs du credit est rempli
@@ -48,7 +49,7 @@ spl_autoload_register(function($class) {
             echo $compte;
         }
         echo '</section>';
-        
+
     }
     ?>
 </body>
